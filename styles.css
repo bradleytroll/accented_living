@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+.room-container {
+    position: relative;
+    margin: 20px auto;
+}
+
+.room {
+    position: relative;
+    display: inline-block;
+}
+
+.room-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+.accent-wall {
+    position: absolute;
+    top: 30%;   /* Adjust these values */
+    left: 20%;  /* Adjust these values */
+    width: 60%; /* Adjust these values */
+    height: 50%;/* Adjust these values */
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.color-options {
+    margin-top: 20px;
+}
+
+.swatch {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: 2px solid #ccc;
+}
+
+.swatch:hover {
+    border-color: #333;
+}
