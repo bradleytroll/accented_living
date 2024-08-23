@@ -1,25 +1,40 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Lora', serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-direction: column; /* Stack the elements vertically */
+    min-height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
 }
 
 .container {
     text-align: center;
+    width: 80%;
+    max-width: 900px;
+    position: relative;
+    z-index: 1; /* Ensure it's in normal stacking order */
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    position: relative;
+    z-index: 2; /* Keep it above the container */
 }
 
 .room-container {
     position: relative;
     margin: 20px auto;
+    z-index: 1; /* Default stacking */
 }
 
 .room {
     position: relative;
     display: inline-block;
+    z-index: 1; /* Default stacking */
 }
 
 .room-image {
@@ -30,26 +45,58 @@ body {
 
 .accent-wall {
     position: absolute;
-    top: 30%;   /* Adjust these values */
-    left: 20%;  /* Adjust these values */
-    width: 60%; /* Adjust these values */
-    height: 50%;/* Adjust these values */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(20% 20%, 80% 20%, 80% 70%, 20% 70%);
     background-color: transparent;
     transition: background-color 0.3s ease;
-    z-index: 10;
+    z-index: 3; /* Ensure it's above the image */
+    pointer-events: none;
+}
+
+.color-title {
+    font-size: 1.5rem;
+    font-family: 'Lora', serif;
+    color: #333;
+    margin-bottom: 20px;
+    z-index: 2; /* Keep it above the room-container */
 }
 
 .color-options {
-    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 700px;
+    z-index: 2; /* Keep it above the room-container */
+}
+
+.swatch-container {
+    text-align: center;
+    margin: 10px;
+    width: 100px; /* Set a fixed width for even spacing */
 }
 
 .swatch {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    margin: 0 10px;
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
     cursor: pointer;
     border: 2px solid #ccc;
+    z-index: 2; /* Ensure swatches are clickable */
+}
+
+.swatch-label {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Lora', serif;
+    color: #333;
+    display: block;
+    z-index: 2; /* Ensure labels are clickable */
 }
 
 .swatch:hover {
